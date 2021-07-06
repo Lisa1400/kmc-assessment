@@ -1,5 +1,5 @@
 class Weather {
-  constructor(weatherType, craterChangeRate, supportedVehicles) {
+  constructor(weatherType, craterChangeRate, ...supportedVehicles) {
     this.weatherType = weatherType;
     this.craterChangeRate = craterChangeRate;
     this.supportedVehicles = supportedVehicles;
