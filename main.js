@@ -14,12 +14,21 @@ function getAllVehicle() {
   return vehicles;
 }
 
-function getAllWeatherDetails(){
-    let weatherTypes = []
+function getAllWeatherDetails() {
+  let weatherTypes = [];
 
-    weatherTypes.push(new Weather("sunny", -10, ["bike", "tuktuk", "car"]))
-    weatherTypes.push(new Weather("rainy", -20, ["bike", "tuktuk", "car"]))
-    weatherTypes.push(new Weather("windy", 0, ["bike", "tuktuk", "car"]))
+  weatherTypes.push(new Weather("sunny", -10, ["bike", "tuktuk", "car"]));
+  weatherTypes.push(new Weather("rainy", -20, ["bike", "tuktuk", "car"]));
+  weatherTypes.push(new Weather("windy", 0, ["bike", "tuktuk", "car"]));
 
-    return weatherTypes
+  return weatherTypes;
+}
+
+function getAllOrbits() {
+  let orbits = [];
+
+  orbits.push(new Orbit("Orbit 1", 18, 20, new Velocity(14, "megamiles/hour")));
+  orbits.push(new Orbit("Orbit 2", 20, 10, new Velocity(20, "megamiles/hour")));
+
+  return orbits;
 }
