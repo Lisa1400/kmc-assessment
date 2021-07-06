@@ -13,3 +13,13 @@ function getAllVehicle() {
 
   return vehicles;
 }
+
+function getAllWeatherDetails(){
+    let weatherTypes = []
+
+    weatherTypes.push(new Weather("sunny", -10, ["bike", "tuktuk", "car"]))
+    weatherTypes.push(new Weather("rainy", -20, ["bike", "tuktuk", "car"]))
+    weatherTypes.push(new Weather("windy", 0, ["bike", "tuktuk", "car"]))
+
+    return weatherTypes
+}
