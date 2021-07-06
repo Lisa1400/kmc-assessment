@@ -1,4 +1,4 @@
-class Weather {
+module.exports = class Weather {
   constructor(weatherType, craterChangeRate, ...supportedVehicles) {
     this.weatherType = weatherType;
     this.craterChangeRate = craterChangeRate;

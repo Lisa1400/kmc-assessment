@@ -1,4 +1,4 @@
-class Orbit {
+module.exports = class Orbit {
   constructor(orbitName, distance, numberOfCraters, velocityLimit) {
     this.orbitName = orbitName;
     this.distance = distance;

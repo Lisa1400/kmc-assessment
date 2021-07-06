@@ -1,4 +1,4 @@
-class Velocity {
+module.exports = class Velocity {
   constructor(speed, unit) {
     this.speed = speed;
     this.unit = unit;

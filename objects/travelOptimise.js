@@ -1,4 +1,4 @@
-class TravelOptimised {
+module.exports = class TravelOptimised {
   constructor(timeTravelled, orbit, vehicle) {
     this.timeTravelled = timeTravelled;
     this.orbit = orbit;

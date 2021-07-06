@@ -1,4 +1,4 @@
-class Vehicle {
+module.exports = class Vehicle {
   constructor(vehicleName, velocity, timeSpentInCrater) {
     this.vehicleName = vehicleName;
     this.velocity = velocity;
