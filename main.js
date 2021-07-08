@@ -33,14 +33,58 @@ function getAllOrbits() {
   return orbits;
 }
 
-function getWeatherType(weatherType){
+function getWeatherType(weatherType) {
   return getAllWeatherDetails().filter((weatherDetail) => {
-    return weatherDetail.getWeatherType() === weatherType
-  })
+    return weatherDetail.getWeatherType() === weatherType;
+  });
 }
 
-function getSupportedVehiclesForWeather(supportedVehicles){
-  return getAllVehicles(). filter((supportedVehicle) => {
-    return supportedVehicles.includes(supportedVehicle.getVehicleName())
-  })
+function getSupportedVehiclesForWeather(supportedVehicles) {
+  return getAllVehicles().filter((supportedVehicle) => {
+    return supportedVehicles.includes(supportedVehicle.getVehicleName());
+  });
+}
+
+function getOptimisedTrip(weather, vehicles, orbit) {
+  let travellingOptimisations = [];
+
+  vehicles.forEach((element) => {
+    let optimisedTrip = new TravelOptimised();
+
+    for (let j = 0; j < orbit.length; j++) {
+      optimisedTrip.setTimeTravelled(
+        calculateOptimisedTravelledTime(weather, element, orbit[j])
+      );
+      optimisedTrip.setOrbit(orbit);
+      optimisedTrip.setVehicle(element);
+    }
+
+    travellingOptimisations.push(optimisedTrip);
+  });
+
+  let optimumTravel = null;
+  let minimumTime = Number.MAX_VALUE;
+  let optimumOrbit = null;
+
+  for (let i = 0; i < travellingOptimisations.length; i++) {
+    let travelledTime = travellingOptimisations[i].getTimeTravelled();
+
+    if (travelledTime < minimumTime) {
+      minimumTime = travelledTime;
+
+      optimumTravel = travellingOptimisations[i];
+    }
+  }
+
+  optimumOrbit =
+    optimumTravel.vehicle.getTimeSpentInCrater() *
+      optimumTravel.orbit[0].getNumberOfCraters() <
+    optimumTravel.vehicle.getTimeSpentInCrater() *
+      optimumTravel.orbit[1].getNumberOfCraters()
+      ? 1
+      : 2;
+
+  return console.log(
+    `Orbit ${optimumOrbit}  - Vehicle ${optimumTravel.vehicle.getVehicleName()}`
+  );
 }
