@@ -4,7 +4,7 @@ const Velocity = require("./objects/velocity");
 const Weather = require("./objects/weather");
 const TravelOptimised = require("./objects/travelOptimise");
 
-function getAllVehicle() {
+function getAllVehicles() {
   let vehicles = [];
 
   vehicles.push(new Vehicle("bike", new Velocity(10, "megamiles/hour"), 2));
@@ -34,7 +34,13 @@ function getAllOrbits() {
 }
 
 function getWeatherType(weatherType){
-  return getAllWeatherDetails.filter((weatherDetail) => {
+  return getAllWeatherDetails().filter((weatherDetail) => {
     return weatherDetail.getWeatherType() === weatherType
+  })
+}
+
+function getSupportedVehiclesForWeather(supportedVehicles){
+  return getAllVehicles(). filter((supportedVehicle) => {
+    return supportedVehicles.includes(supportedVehicle.getVehicleName())
   })
 }
