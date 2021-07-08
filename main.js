@@ -32,3 +32,9 @@ function getAllOrbits() {
 
   return orbits;
 }
+
+function getWeatherType(weatherType){
+  return getAllWeatherDetails.filter((weatherDetail) => {
+    return weatherDetail.getWeatherType() === weatherType
+  })
+}
