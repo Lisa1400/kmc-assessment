@@ -88,3 +88,24 @@ function getOptimisedTrip(weather, vehicles, orbit) {
     `Orbit ${optimumOrbit}  - Vehicle ${optimumTravel.vehicle.getVehicleName()}`
   );
 }
+
+function calculateOptimisedTravelledTime(weather, vehicle, orbit) {
+  let distance = orbit["getDistance"]();
+
+  let numberOfCratersInOrbit = orbit["getNumberOfCraters"]();
+
+  let orbitSpeedLimit = orbit["getVelocityLimit"]()["getSpeed"]();
+
+  let vehicleMaxSpeed = vehicle["getVelocity"]()["getSpeed"]();
+
+  let applicableSpeedLimit =
+    orbitSpeedLimit > vehicleMaxSpeed ? vehicleMaxSpeed : orbitSpeedLimit;
+
+  let applicableNumberOfCraters =
+    (numberOfCratersInOrbit * (100 + weather["getCraterChangeRate"]())) / 100.0;
+
+  return (
+    (distance * 60) / applicableSpeedLimit +
+    applicableNumberOfCraters * vehicle["getTimeSpentInCrater"]()
+  );
+}
