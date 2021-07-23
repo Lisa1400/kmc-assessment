@@ -36,4 +36,4 @@ module.exports = class Orbit {
   setVelocityLimit(newVelocityLimit) {
     this.velocityLimit = newVelocityLimit;
   }
-}
+};

@@ -27,8 +27,8 @@ function getAllWeatherDetails() {
 function getAllOrbits() {
   let orbits = [];
 
-  orbits.push(new Orbit("Orbit 1", 18, 20, new Velocity(14, "megamiles/hour")));
-  orbits.push(new Orbit("Orbit 2", 20, 10, new Velocity(20, "megamiles/hour")));
+  orbits.push(new Orbit("Orbit 1", 18, 20, new Velocity(14, "megamiles/hour"))); // orbit 1 traffic speed 
+  orbits.push(new Orbit("Orbit 2", 20, 10, new Velocity(20, "megamiles/hour"))); // orbit 2 traffic speed
 
   return orbits;
 }
@@ -109,3 +109,8 @@ function calculateOptimisedTravelledTime(weather, vehicle, orbit) {
     applicableNumberOfCraters * vehicle["getTimeSpentInCrater"]()
   );
 }
+
+let weather = new getWeatherType("windy")[0] // input weather
+let vehicles = new getSupportedVehiclesForWeather(weather.getSupportedVehicles()[0])
+
+getOptimisedTrip(weather, vehicles, getAllOrbits())
